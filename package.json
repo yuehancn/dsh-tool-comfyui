@@ -13,7 +13,8 @@
     "workflows/**/*.json",
     "cordis.patch.yml",
     "start-comfyui-worker.bat",
-    "README.md"
+    "README.md",
+    "LICENSE"
   ],
   "keywords": [
     "dsh-plugin",
