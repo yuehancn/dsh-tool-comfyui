@@ -1,0 +1,20 @@
+# The dsh-tool-comfyui bundle patch: one insert adding the ComfyUI tool suite.
+#
+# Per-profile worker fleet and paths are configured by overriding this row in
+# the profile's own cordis.patch.yml (the last write wins per row):
+#
+#   - id: tool-comfyui
+#     config:
+#       workers:
+#         - id: local5090
+#           url: http://127.0.0.1:8188
+#           label: RTX 5090D
+#         - id: spark5060
+#           url: http://192.168.11.109:8188
+#           label: 5060 Ti 素材机 A
+#       workflowsDir: C:/Users/<you>/.dsh/plugins/dsh-tool-comfyui/workflows
+#       outputDir: C:/Users/<you>/Pictures/comfyui
+
+- insert:
+    - id: tool-comfyui
+      name: dsh-tool-comfyui

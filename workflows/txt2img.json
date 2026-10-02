@@ -1,0 +1,66 @@
+{
+  "4": {
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": { "title": "load checkpoint" },
+    "inputs": {
+      "ckpt_name": "sd_xl_base_1.0.safetensors"
+    }
+  },
+  "5": {
+    "class_type": "EmptyLatentImage",
+    "_meta": { "title": "latent" },
+    "inputs": {
+      "width": 1024,
+      "height": 1024,
+      "batch_size": 1
+    }
+  },
+  "6": {
+    "class_type": "CLIPTextEncode",
+    "_meta": { "title": "prompt" },
+    "inputs": {
+      "text": "a product photo of a ceramic mug on a clean white background, soft studio lighting, e-commerce catalog shot",
+      "clip": ["4", 1]
+    }
+  },
+  "7": {
+    "class_type": "CLIPTextEncode",
+    "_meta": { "title": "negative" },
+    "inputs": {
+      "text": "text, watermark, logo, signature, blurry, low quality, jpeg artifacts, deformed, extra limbs",
+      "clip": ["4", 1]
+    }
+  },
+  "3": {
+    "class_type": "KSampler",
+    "_meta": { "title": "sampler" },
+    "inputs": {
+      "seed": 0,
+      "steps": 30,
+      "cfg": 7,
+      "sampler_name": "dpmpp_2m",
+      "scheduler": "karras",
+      "denoise": 1,
+      "model": ["4", 0],
+      "positive": ["6", 0],
+      "negative": ["7", 0],
+      "latent_image": ["5", 0]
+    }
+  },
+  "8": {
+    "class_type": "VAEDecode",
+    "_meta": { "title": "decode" },
+    "inputs": {
+      "samples": ["3", 0],
+      "vae": ["4", 2]
+    }
+  },
+  "9": {
+    "class_type": "SaveImage",
+    "_meta": { "title": "save" },
+    "inputs": {
+      "filename_prefix": "dsh/comfyui",
+      "images": ["8", 0]
+    }
+  }
+}

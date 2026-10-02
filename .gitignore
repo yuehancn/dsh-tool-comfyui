@@ -1,0 +1,16 @@
+# dependencies — dsh resolves these from its own runtime
+node_modules/
+
+# local verification scaffolding (never ship)
+.probe/
+_nm_trash_*/
+
+# generated images / logs
+*.log
+outputs/
+
+# editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
