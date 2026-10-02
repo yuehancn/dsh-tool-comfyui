@@ -1,10 +1,25 @@
 # dsh-tool-comfyui
 
+[![Listed on dsh-plugin.org](https://dsh-plugin.org/badges/listed.svg)](https://dsh-plugin.org/plugins/yuehancn/dsh-tool-comfyui)
+
+> **在 dsh 里一句话出图** —— 装完这个插件，你的 Agent 就能直接调用本机 /
+> 局域网的 ComfyUI 机队生成图片，不用切窗口、不用手搓 API 请求。
+
 给 **DeepSeek Harness** 用的自建工具插件：在 dsh 里一句话直接调用本机/局域网的
 **ComfyUI 机队** 出图。
 
 > **Compatibility**: built and tested against dsh `0.2.0-rc.2` (preview).
 > The `apply(ctx)` plugin spec is stable; verify against your own dsh version if newer.
+
+---
+
+## 一行安装
+
+```bash
+dsh plugin --profile desktop add github:yuehancn/dsh-tool-comfyui
+```
+
+**支持的 profile**：`desktop`（桌面版）/ `web`（Web 版）。装完重启 dsh 即可用。
 
 ---
 
